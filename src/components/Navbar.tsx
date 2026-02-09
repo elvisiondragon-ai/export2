@@ -47,7 +47,7 @@ const Navbar = () => {
             className="flex items-center gap-1 rounded-md border border-border px-2 py-1 text-xs text-foreground transition-colors hover:border-primary hover:text-primary"
           >
             <Globe className="h-3 w-3" />
-            {lang.toUpperCase()} | {currency}
+            {lang === "en" ? "Bahasa Indo" : "English"}
           </button>
           <button
             onClick={() => setOpen(!open)}
