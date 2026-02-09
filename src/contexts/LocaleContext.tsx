@@ -7,7 +7,7 @@ interface LocaleContextType {
   lang: Language;
   currency: Currency;
   toggleLang: () => void;
-  toggleCurrency: () => void;
+  setLang: (l: Language) => void;
   t: (en: string, id: string) => string;
   formatPrice: (usd: number) => string;
 }
@@ -17,11 +17,19 @@ const LocaleContext = createContext<LocaleContextType | undefined>(undefined);
 const USD_TO_IDR = 15800;
 
 export const LocaleProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lang, setLang] = useState<Language>("en");
+  const [lang, setLangState] = useState<Language>("en");
   const [currency, setCurrency] = useState<Currency>("USD");
 
-  const toggleLang = () => setLang((l) => (l === "en" ? "id" : "en"));
-  const toggleCurrency = () => setCurrency((c) => (c === "USD" ? "IDR" : "USD"));
+  const setLang = (l: Language) => {
+    setLangState(l);
+    setCurrency(l === "en" ? "USD" : "IDR");
+  };
+
+  const toggleLang = () => {
+    const nextLang = lang === "en" ? "id" : "en";
+    setLang(nextLang);
+  };
+
   const t = (en: string, id: string) => (lang === "en" ? en : id);
   const formatPrice = (usd: number) => {
     if (currency === "USD") return `$${usd.toLocaleString("en-US")}`;
@@ -30,7 +38,7 @@ export const LocaleProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   };
 
   return (
-    <LocaleContext.Provider value={{ lang, currency, toggleLang, toggleCurrency, t, formatPrice }}>
+    <LocaleContext.Provider value={{ lang, currency, toggleLang, setLang, t, formatPrice }}>
       {children}
     </LocaleContext.Provider>
   );

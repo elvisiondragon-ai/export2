@@ -4,7 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LocaleProvider } from "@/contexts/LocaleContext";
-import Navbar from "@/components/Navbar";
+import BottomNav from "@/components/BottomNav";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Index from "./pages/Index";
 import Shipment from "./pages/Shipment";
@@ -21,7 +22,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Navbar />
+          <LanguageSwitcher />
           <WhatsAppFloat />
           <Routes>
             <Route path="/" element={<Index />} />
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/revenue" element={<Revenue />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <BottomNav />
         </BrowserRouter>
       </LocaleProvider>
     </TooltipProvider>

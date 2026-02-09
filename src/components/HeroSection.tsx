@@ -23,8 +23,13 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          <img 
+            src="/export.png" 
+            alt="eL Vision Group Logo" 
+            className="mx-auto mb-6 h-24 w-24 object-contain"
+          />
           <p className="mb-4 text-sm font-medium tracking-[0.3em] uppercase text-primary">
-            eL Vision Group
+            eL Vision Group Export LLC
           </p>
           <h1 className="font-display text-5xl font-bold leading-tight sm:text-6xl lg:text-7xl">
             <span className="text-gold-gradient">Export Global</span>

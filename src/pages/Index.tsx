@@ -5,13 +5,13 @@ import CTASection from "@/components/CTASection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pb-32">
       <HeroSection />
       <WhatWeShip />
       <GlobalShipping />
       <CTASection />
       <footer className="border-t border-border py-8 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} eL Vision Group — Export Global. All rights reserved.
+        © {new Date().getFullYear()} eL Vision Group Export LLC — Export Global. All rights reserved.
       </footer>
     </div>
   );

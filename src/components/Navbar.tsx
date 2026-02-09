@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Globe, DollarSign } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { useLocale } from "@/contexts/LocaleContext";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { lang, currency, toggleLang, toggleCurrency, t } = useLocale();
+  const { lang, currency, toggleLang, t } = useLocale();
   const location = useLocation();
 
   const links = [
@@ -47,14 +47,7 @@ const Navbar = () => {
             className="flex items-center gap-1 rounded-md border border-border px-2 py-1 text-xs text-foreground transition-colors hover:border-primary hover:text-primary"
           >
             <Globe className="h-3 w-3" />
-            {lang.toUpperCase()}
-          </button>
-          <button
-            onClick={toggleCurrency}
-            className="flex items-center gap-1 rounded-md border border-border px-2 py-1 text-xs text-foreground transition-colors hover:border-primary hover:text-primary"
-          >
-            <DollarSign className="h-3 w-3" />
-            {currency}
+            {lang.toUpperCase()} | {currency}
           </button>
           <button
             onClick={() => setOpen(!open)}
