@@ -6,10 +6,10 @@ const BottomNav = () => {
   const { t } = useLocale();
 
   const navItems = [
-    { to: "/", icon: LayoutDashboard, label: t("Home", "Beranda") },
-    { to: "/shipment", icon: Ship, label: t("Shipments", "Pengiriman") },
-    { to: "/tracking", icon: Map, label: t("Tracking", "Pelacakan") },
-    { to: "/revenue", icon: BarChart3, label: t("Revenue", "Pendapatan") },
+    { to: "/", icon: LayoutDashboard, label: t("Home", "Home") },
+    { to: "/shipment", icon: Ship, label: t("Shipment", "Shipment") },
+    { to: "/tracking", icon: Map, label: t("Tracking", "Tracking") },
+    { to: "/revenue", icon: BarChart3, label: t("Shipment", "Shipment") },
   ];
 
   return (
