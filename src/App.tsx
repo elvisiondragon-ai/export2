@@ -13,12 +13,13 @@ import Tracking from "./pages/Tracking";
 import Revenue from "./pages/Revenue";
 import NotFound from "./pages/NotFound";
 import ExportSurvey from "./pages/ExportSurvey";
-import DrelfPaymentPage from "./fisik/drelf";
-import DrelfLanding from "./fisik/drelflp";
-import FitFactorPaymentPage from "./fisik/fitfactor";
-import HungryLaterPaymentPage from "./fisik/hungrylater";
-import JewelryPaymentPage from "./fisik/jewelry";
-import ParfumPaymentPage from "./fisik/parfum";
+import DrelfPaymentPage from "./pages/co_en/drelf";
+import DrelfLanding from "./pages/co_en/drelflp";
+import FitFactorPaymentPage from "./pages/co_en/fitfactor";
+import HungryLaterPaymentPage from "./pages/co_en/hungrylater";
+import JewelryPaymentPage from "./pages/co_en/jewelry";
+import ParfumPaymentPage from "./pages/co_en/parfum";
+import DrelfPaymentPageID from "./pages/co_id/id_drelf";
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -30,6 +31,7 @@ const queryClient = new QueryClient();
 const AppContent = () => {
   const location = useLocation();
   const isFisikRoute = location.pathname.startsWith('/drelf') || 
+                      location.pathname.startsWith('/id_drelf') ||
                       location.pathname.startsWith('/fitfactor') || 
                       location.pathname.startsWith('/hungrylater') || 
                       location.pathname.startsWith('/jewelry') || 
@@ -51,6 +53,7 @@ const AppContent = () => {
         
         {/* Fisik Routes */}
         <Route path="/drelf" element={<DrelfPaymentPage />} />
+        <Route path="/id_drelf" element={<DrelfPaymentPageID />} />
         <Route path="/drelflp" element={<DrelfLanding />} />
         <Route path="/fitfactor" element={<FitFactorPaymentPage />} />
         <Route path="/hungrylater" element={<HungryLaterPaymentPage />} />
