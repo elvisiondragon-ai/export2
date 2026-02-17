@@ -20,6 +20,10 @@ import HungryLaterPaymentPage from "./pages/co_en/hungrylater";
 import JewelryPaymentPage from "./pages/co_en/jewelry";
 import ParfumPaymentPage from "./pages/co_en/parfum";
 import DrelfPaymentPageID from "./pages/co_id/id_drelf";
+import FitFactorPaymentPageID from "./pages/co_id/id_fitfactor";
+import HungryLaterPaymentPageID from "./pages/co_id/id_hungrylater";
+import JewelryPaymentPageID from "./pages/co_id/id_elroyaljewelry";
+import ParfumPaymentPageID from "./pages/co_id/id_elroyaleparfum";
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -33,9 +37,13 @@ const AppContent = () => {
   const isFisikRoute = location.pathname.startsWith('/drelf') || 
                       location.pathname.startsWith('/id_drelf') ||
                       location.pathname.startsWith('/fitfactor') || 
+                      location.pathname.startsWith('/id_fitfactor') ||
                       location.pathname.startsWith('/hungrylater') || 
+                      location.pathname.startsWith('/id_hungrylater') ||
                       location.pathname.startsWith('/jewelry') || 
-                      location.pathname.startsWith('/parfum');
+                      location.pathname.startsWith('/id_jewelry') ||
+                      location.pathname.startsWith('/parfum') ||
+                      location.pathname.startsWith('/id_parfum');
   
   const isAnalyticsRoute = location.pathname.startsWith('/analytics');
 
@@ -56,9 +64,13 @@ const AppContent = () => {
         <Route path="/id_drelf" element={<DrelfPaymentPageID />} />
         <Route path="/drelflp" element={<DrelfLanding />} />
         <Route path="/fitfactor" element={<FitFactorPaymentPage />} />
+        <Route path="/id_fitfactor" element={<FitFactorPaymentPageID />} />
         <Route path="/hungrylater" element={<HungryLaterPaymentPage />} />
+        <Route path="/id_hungrylater" element={<HungryLaterPaymentPageID />} />
         <Route path="/jewelry" element={<JewelryPaymentPage />} />
+        <Route path="/id_jewelry" element={<JewelryPaymentPageID />} />
         <Route path="/parfum" element={<ParfumPaymentPage />} />
+        <Route path="/id_parfum" element={<ParfumPaymentPageID />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
