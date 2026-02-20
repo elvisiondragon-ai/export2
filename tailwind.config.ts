@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         display: ['"Playfair Display"', 'serif'],
+        serif: ['"Playfair Display"', 'serif'],
         sans: ['Inter', 'sans-serif'],
       },
       colors: {
@@ -26,8 +27,13 @@ export default {
         gold: {
           light: "hsl(var(--gold-light))",
           DEFAULT: "hsl(var(--gold))",
+          500: "hsl(43 72% 52%)",
+          600: "hsl(43 72% 42%)",
           dark: "hsl(var(--gold-dark))",
           glow: "hsl(var(--gold-glow))",
+        },
+        cream: {
+          50: "#FFFDF5",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",

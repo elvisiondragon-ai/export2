@@ -35,6 +35,8 @@ const FitFactorPaymentPageID = lazy(() => import("./pages/co_id/id_fitfactor"));
 const HungryLaterPaymentPageID = lazy(() => import("./pages/co_id/id_hungrylater"));
 const JewelryPaymentPageID = lazy(() => import("./pages/co_id/id_elroyaljewelry"));
 const ParfumPaymentPageID = lazy(() => import("./pages/co_id/id_elroyaleparfum"));
+const Lumina = lazy(() => import("./pages/fisik/lumina"));
+const Bra = lazy(() => import("./pages/fisik/bra"));
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -50,7 +52,7 @@ const PageLoader = () => (
 
 const AppContent = () => {
   const location = useLocation();
-  const isFisikRoute = location.pathname.startsWith('/drelf') || 
+  const isFisikRoute = (location.pathname.startsWith('/drelf') || 
                       location.pathname.startsWith('/id_drelf') ||
                       location.pathname.startsWith('/fitfactor') || 
                       location.pathname.startsWith('/id_fitfactor') ||
@@ -59,7 +61,9 @@ const AppContent = () => {
                       location.pathname.startsWith('/jewelry') || 
                       location.pathname.startsWith('/id_jewelry') ||
                       location.pathname.startsWith('/parfum') ||
-                      location.pathname.startsWith('/id_parfum');
+                      location.pathname.startsWith('/id_parfum')) &&
+                      !location.pathname.startsWith('/lumina') &&
+                      !location.pathname.startsWith('/bra');
   
   const isAnalyticsRoute = location.pathname.startsWith('/analytics');
 
@@ -75,6 +79,8 @@ const AppContent = () => {
           <Route path="/revenue" element={<Revenue />} />
           <Route path="/survey" element={<ExportSurvey />} />
           <Route path="/analytics" element={<AnalyticsDashboard />} />
+          <Route path="/lumina" element={<Lumina />} />
+          <Route path="/bra" element={<Bra />} />
           
           {/* Fisik Routes */}
           <Route path="/drelf" element={<DrelfPaymentPage />} />
