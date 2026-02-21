@@ -37,6 +37,7 @@ const JewelryPaymentPageID = lazy(() => import("./pages/co_id/id_elroyaljewelry"
 const ParfumPaymentPageID = lazy(() => import("./pages/co_id/id_elroyaleparfum"));
 const Lumina = lazy(() => import("./pages/fisik/lumina"));
 const Bra = lazy(() => import("./pages/fisik/bra"));
+const PackagePage = lazy(() => import("./pages/fisik/package"));
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -61,7 +62,8 @@ const AppContent = () => {
                       location.pathname.startsWith('/jewelry') || 
                       location.pathname.startsWith('/id_jewelry') ||
                       location.pathname.startsWith('/parfum') ||
-                      location.pathname.startsWith('/id_parfum')) &&
+                      location.pathname.startsWith('/id_parfum') ||
+                      location.pathname.startsWith('/package')) &&
                       !location.pathname.startsWith('/lumina') &&
                       !location.pathname.startsWith('/bra');
   
@@ -81,6 +83,7 @@ const AppContent = () => {
           <Route path="/analytics" element={<AnalyticsDashboard />} />
           <Route path="/lumina" element={<Lumina />} />
           <Route path="/bra" element={<Bra />} />
+          <Route path="/package" element={<PackagePage />} />
           
           {/* Fisik Routes */}
           <Route path="/drelf" element={<DrelfPaymentPage />} />
